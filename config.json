@@ -1,0 +1,30 @@
+{
+  "method" : "kmeans",
+  "parameter" : {
+  	"k": 10,
+	"compressor_method": "simple",
+	"bucket_size": "4096",
+	"bucket_length": "200",
+	"compressed_backet_size": "4096",
+	"bicriteria_base_size": "10",
+	"forgetting_factor": "10",
+	"forgetting_threshold": "10"
+  },
+  "converter" : {
+    "string_filter_types" : {},
+    "string_filter_rules" : [],
+    "num_filter_types" : {},
+    "num_filter_rules" : [],
+    "string_types" : {
+    	"lingo": {"method": "ngram", "char_num": "4"}
+    },
+    "string_rules" : [
+      { "key" : "smiles", "type" : "lingo", "sample_weight" : "tf", "global_weight" : "bin"},
+      { "key" : "*", "type" : "str", "sample_weight" : "bin", "global_weight" : "bin" }
+    ],
+    "num_types" : {},
+    "num_rules" : [
+      { "key" : "*", "type" : "num" }
+    ]
+  }
+}
